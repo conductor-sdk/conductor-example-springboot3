@@ -6,3 +6,4 @@ build
 .idea
 /.gitattributes
 /target
+.DS_Store
