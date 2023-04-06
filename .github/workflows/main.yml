@@ -20,4 +20,4 @@ jobs:
 
       - name: Invoke the webhook using curl
         run: |
-          curl -i -XPOST -H "Accept: application/vnd.github.everest-preview+json" -H "Authorization: token ${{ secrets.WEBHOOK_SECRET }}" https://api.github.com/repos/orkes-io/orkes-springboot-example-build/dispatches -d '{"event_type": "webhook"}'
+          curl -i -XPOST -H "Accept: application/vnd.github.everest-preview+json" -H "Authorization: token ${{ secrets.WEBHOOK_SECRET }}" https://api.github.com/repos/orkes-io/orkes-springboot3-example-build/dispatches -d '{"event_type": "webhook"}'
