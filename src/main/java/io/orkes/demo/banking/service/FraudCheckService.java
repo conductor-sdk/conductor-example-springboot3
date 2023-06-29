@@ -1,25 +1,29 @@
 package io.orkes.demo.banking.service;
 
 import io.orkes.demo.banking.pojos.DepositDetail;
+import io.orkes.demo.banking.workers.FraudCheckResult;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+import static io.orkes.demo.banking.workers.FraudCheckResult.Result.FAIL;
+import static io.orkes.demo.banking.workers.FraudCheckResult.Result.PASS;
+
 @Service
 public class FraudCheckService {
 
-    public Map<String, Object> checkForFraud(DepositDetail depositDetail) {
-        Map<String, Object> result = new HashMap<>();
+    public FraudCheckResult checkForFraud(DepositDetail depositDetail) {
+        FraudCheckResult fcr = new FraudCheckResult();
         if(depositDetail.getAmount().compareTo(BigDecimal.valueOf(100000)) > 0) {
-            result.put("fraudCheckResult", "FAIL");
-            result.put("reason", "Amount too large");
+            fcr.setResult(FAIL);
+            fcr.setReason("Amount too large");
         } else {
-            result.put("fraudCheckResult", "PASS");
+            fcr.setResult(PASS);
+            fcr.setReason("All good!");
         }
-        result.put("input", depositDetail);
-        return result;
+        return fcr;
     }
 
 }
