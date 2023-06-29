@@ -21,9 +21,4 @@ public class BankingApplication {
 		SpringApplication.run(BankingApplication.class, args);
 	}
 
-	@Bean
-	public WorkflowClient workflowClient(ApiClient apiClient) {
-		return new OrkesWorkflowClient(apiClient);
-	}
-
 }
