@@ -1,5 +1,7 @@
 package io.orkes.demo.banking;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.netflix.conductor.common.config.ObjectMapperProvider;
 import io.orkes.conductor.client.ApiClient;
 import io.orkes.conductor.client.TaskClient;
 import io.orkes.conductor.client.WorkflowClient;
@@ -19,6 +21,12 @@ public class BankingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BankingApplication.class, args);
+	}
+
+	// ObjectMapper instance used for JSON serialization - can be modified to configure additional modules
+	@Bean
+	public ObjectMapper getObjectMapper() {
+		return new ObjectMapperProvider().getObjectMapper();
 	}
 
 }
