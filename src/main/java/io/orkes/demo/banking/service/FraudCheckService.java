@@ -5,8 +5,6 @@ import io.orkes.demo.banking.workers.FraudCheckResult;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
 import static io.orkes.demo.banking.workers.FraudCheckResult.Result.FAIL;
 import static io.orkes.demo.banking.workers.FraudCheckResult.Result.PASS;
